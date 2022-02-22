@@ -1,0 +1,3 @@
+-> Sintonizacion del numero de vecinos. Plotear ACE. MEAN. GEOMAN vs (K)
+-> Evaluar cambios en desempeño de clasificacion al aplicar Random Under Sampling}
+	Implementacion funcion

@@ -1,0 +1,37 @@
+fullDS = load('seeds_dataset.txt');
+featMat = fullDS(:,1:7); % Muestra y caracteristicas
+realCL = fullDS(:,8); % Etiquetas de clase
+
+featMat = fullDS(1:140,:); % Muestra y caracteristicas
+realCL = realCL(1:140,:); % Etiquetas de clase
+
+auxInds = repmat((1:10)',14,1);
+
+% Muestras de entrenamiento/validación
+
+for auxInds2 = 1:10
+    
+
+    Tr_Idx = find(auxInds ~= auxInds2 );
+    Val_Idx = find(auxInds == auxInds2 );
+
+    Tr_Samples = featMat(Tr_Idx,:);
+    Tr_Labels = realCL(Tr_Idx,:);
+
+    Val_Samples = featMat(Val_Idx,:);
+    Val_Labels = realCL(Val_Idx,:);
+
+    knnModel = fitcknn(Tr_Samples,Tr_Labels);  % Método KNN
+
+    predLabels = predict(knnModel,Val_Samples);  % Predecir
+
+End
+
+Comparison = [Val_Labels, predLabels];
+
+% Matriz de confusión = nos interesa que por fuera de la matriz principal hayan ceros 0  y que no hayan elementos fuera
+de la matriz principal
+
+cm = confusionmat(Val_Labels,predLabels);
+sens = cm(1,1)/(cm(1,1)+cm(1,2));
+
