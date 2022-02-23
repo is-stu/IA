@@ -1,3 +1,10 @@
 -> Sintonizacion del numero de vecinos. Plotear ACE. MEAN. GEOMAN vs (K)
 -> Evaluar cambios en desempeño de clasificacion al aplicar Random Under Sampling}
 	Implementacion funcion
+
+segunda parte - mejorar desempeño de clasificacion mediante balanceo de clases
+-> ya se sabe el valor optimo de K-vecinos, este valor es  ( 1 )
+
+-> De todas las clases miras cual es la menor y las empareja todas las clases, en nuestro caso, la menor posee 522, entonces
+el resto de clases es emparejaran a 522.
+
